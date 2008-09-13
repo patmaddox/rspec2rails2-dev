@@ -110,22 +110,15 @@ describe "When requesting /people with views integrated" do
     assigns[:people].should equal(@people)
   end
   
-  it "should list pets on GET to show" do
-    person = mock("person")
-    person.should_receive(:pets).and_return([OpenStruct.new(:name => 'Hannibal'), OpenStruct.new(:name => 'Rufus')])
-    Person.should_receive(:find).with('4').and_return(person)
-
-    get 'show', :id => '4'
-    response.should have_tag('li', 'Hannibal')
-    response.should have_tag('li', 'Rufus')
-  end
 end
 
 describe "/people/show/3" do
   controller_name :people
+  integrate_views
   
   before(:each) do
-    @person = mock("person")
+    @person = mock("person", :pets => [])
+    Person.stub!(:find).and_return @person
   end
   
   it "should get person with id => 3 from model" do
@@ -134,6 +127,14 @@ describe "/people/show/3" do
     get 'show', :id => 3
   
     assigns[:person].should equal(@person)
+  end
+
+  it "should list pets" do
+    @person.should_receive(:pets).and_return([OpenStruct.new(:name => 'Hannibal'), OpenStruct.new(:name => 'Rufus')])
+
+    get 'show', :id => '3'
+    response.should have_tag('li', 'Hannibal')
+    response.should have_tag('li', 'Rufus')
   end
 end
 
