@@ -309,6 +309,7 @@ In alphabetical order (by last name)
 ** Patch [#10636] Added spec for OptionParser in Runner (Patch from Scott Taylor)
 ** Patch LH[#326] Deprecation warnings for specs that assume auto-inclusion of modules
 ** Patch LH[#524] Privatize Have#method_missing and enhance its respond_to?
+** Patch LH[#485] Add file and line numbers to pending specs
 * Steve Tendon
 ** Patch [#9458] The rspec_scaffold generator does not take into account class nesting
 * Jonathan Tron
