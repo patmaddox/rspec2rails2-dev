@@ -36,7 +36,7 @@ class PreCommit::RspecOnRails < PreCommit
     puts "running pre_commit against rails #{rails_version}"
     ENV['RSPEC_RAILS_VERSION'] = rails_version
     pair = RAILS_TAGS.find{|pair| pair[:version] == rails_version}
-    raise "version????" unless pair
+    raise "#{rails_version} is not a :version in #{RAILS_TAGS.inspect}" unless pair
     puts "#####################################################"
     Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor/rails" do
       sh "git checkout #{pair[:tag]}"
