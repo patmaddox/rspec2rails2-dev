@@ -1,6 +1,7 @@
 dir = File.dirname(__FILE__)
 $:.unshift(File.expand_path("#{dir}/lib"))
 $:.unshift(File.expand_path("#{dir}/example_rails_app/vendor/plugins/rspec/lib"))
+require 'spec'
 require "rspec/git"
 require 'rubyforge'
 
@@ -165,7 +166,7 @@ task :release_tmbundle do |t|
   puts "Logging in to rubyforge ..."
   rubyforge.login
   
-  puts "Releasing rspec-rails version #{version} ..."
+  puts "Releasing RSpec-#{version}.tmbundle version #{version} ..."
   rubyforge.add_file('rspec', 'rspec', Spec::VERSION::STRING, "pkg/RSpec-#{version}.tmbundle.tgz")
 end
   
