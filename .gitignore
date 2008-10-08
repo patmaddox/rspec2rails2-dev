@@ -13,3 +13,4 @@ example_rails_app/vendor
 *.ipr
 *.iws
 *~
+website/output

@@ -1,0 +1,9 @@
+--- 
+title: Specs
+order: 3
+filter:
+  - erb
+  - textile
+--- 
+
+h2. <%= @page.title %>
