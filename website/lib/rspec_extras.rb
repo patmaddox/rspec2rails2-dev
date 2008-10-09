@@ -97,10 +97,10 @@ module Webby
         <% end %>
         <% if page.url == '/' %>
           <li>
-            <a href="/rdoc/">RDoc</a>
+            <a href="http://rspec.rubyforge.org/rspec/#{rspec_version}" target="_blank">RDoc</a>
           </li>
           <li>
-            <a href="/rdoc-rails/">RDoc-Rails</a>
+            <a href="http://rspec.rubyforge.org/rspec-rails/#{rspec_version}" target="_blank">RDoc</a>
           </li>
         <% end %>
         <% if page.url == '/documentation/rails' -%>
