@@ -1,6 +1,6 @@
 --- 
 title: Spec::Mocks
-order: 6
+order: 4
 filter:
   - erb
   - textile

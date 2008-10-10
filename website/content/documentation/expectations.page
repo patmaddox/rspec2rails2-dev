@@ -1,6 +1,6 @@
 --- 
 title: Expectations
-order: 2
+order: 1
 filter:
   - erb
   - textile

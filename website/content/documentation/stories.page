@@ -1,6 +1,6 @@
 --- 
-title: Stories
-order: 5
+title: Stories/Features
+order: 2
 filter:
   - erb
   - textile

@@ -1,6 +1,6 @@
 --- 
 title: Test::Unit
-order: 4
+order: 7
 filter:
   - erb
   - textile
