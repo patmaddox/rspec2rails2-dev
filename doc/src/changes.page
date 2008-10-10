@@ -1,8 +1,0 @@
---- 
-title: CHANGES
-order: 3
-filter:
-  - erb
-  - textile
----
-<pre><%= IO.read '../example_rails_app/vendor/plugins/rspec/CHANGES' %></pre>
