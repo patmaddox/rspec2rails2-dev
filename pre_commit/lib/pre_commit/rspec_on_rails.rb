@@ -7,7 +7,7 @@ class PreCommit::RspecOnRails < PreCommit
     {:version => '1.2.6', :tag => 'v1.2.6'},
     {:version => 'edge', :tag => 'master'},
   ]
-  
+    
   def pre_commit
     check_dependencies
     used_railses = []
@@ -23,7 +23,7 @@ class PreCommit::RspecOnRails < PreCommit
     end
     puts "All specs passed against the following released versions of Rails: #{used_railses.join(", ")}"
     unless used_railses.include?('edge')
-      puts "There were errors running pre_commit against edge"
+      error "There were errors running pre_commit against edge"
     end
   end
 

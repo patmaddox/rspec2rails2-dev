@@ -5,6 +5,11 @@ class PreCommit
   end
 
   protected
+
+  def error(msg)
+    puts "\e\[0;31m#{msg}\033[00m"
+  end
+
   def rake_invoke(task_name)
     Rake::Task[task_name].invoke
   end
@@ -14,9 +19,12 @@ class PreCommit
     rake = (PLATFORM == "i386-mswin32") ? "rake.bat" : "rake"
     cmd = "#{rake} #{task_name} #{env} --trace"
     output = silent_sh(cmd)
-    puts output
     if shell_error?(output)
-      raise "ERROR while running rake: #{cmd}"
+      error "ERROR while running rake: #{cmd}"
+      error output
+      exit 1
+    else
+      puts output
     end
   end
 
