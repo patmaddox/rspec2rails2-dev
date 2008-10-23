@@ -10,7 +10,7 @@ This project is for RSpec developers/contributors.
 
 == INSTALL:
 
-  git-clone git://github.com/dchelimsky/rspec-dev.git
+  git clone git://github.com/dchelimsky/rspec-dev.git
   cd rspec-dev
   rake git:update
 
@@ -26,6 +26,12 @@ In order to run RSpec's full suite of examples (rake pre_commit) you must instal
 * hoe           # Required in order to make releases at RubyForge
 * heckle        # Required if you use the --heckle switch
 * hpricot       # Used for parsing HTML from the HTML output formatter in RSpec's own specs
+
+You can easily install all gems by using geminstaller.
+
+  sudo gem install geminstaller
+  cd /path/to/rspec-dev
+  sudo geminstaller
 
 Once those are all installed, you should be able to run the suite with the following steps:
 

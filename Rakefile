@@ -38,11 +38,6 @@ if git.plugins_fetched?
     pre_commit.pre_commit
   end
   
-  desc "Makes sure the correct versions of gems are on the system"
-  task :check_for_gem_dependencies do
-    pre_commit.check_for_gem_dependencies
-  end
-  
   desc "Runs pre_commit against rspec (core)"
   task :pre_commit_core do
     pre_commit.pre_commit_core

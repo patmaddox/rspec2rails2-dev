@@ -1,0 +1,12 @@
+gems:
+- name: coderay
+- name: diff-lcs
+- name: flexmock
+- name: heckle
+- name: hoe
+- name: hpricot
+- name: rake
+- name: rcov
+- name: RedCloth
+- name: rubyforge
+- name: syntax
