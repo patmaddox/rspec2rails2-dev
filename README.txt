@@ -35,13 +35,13 @@ You can easily install all gems by using geminstaller.
 
 Once those are all installed, you should be able to run the suite with the following steps:
 
-* cd /path/to/rspec-dev
-* rake install_dependencies
-* cd example_rails_app
-* export RSPEC_RAILS_VERSION=2.1.0
-* rake rspec:generate_sqlite3_config
-* cd ..
-* rake pre_commit
+  cd /path/to/rspec-dev
+  rake install_dependencies
+  cd example_rails_app
+  export RSPEC_RAILS_VERSION=2.1.0
+  rake rspec:generate_sqlite3_config
+  cd ..
+  rake pre_commit
 
 Note that RSpec itself - once built - doesn't have any dependencies outside
 the Ruby core and stdlib - with a few exceptions:
