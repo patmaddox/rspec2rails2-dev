@@ -10,7 +10,7 @@ This project is for RSpec developers/contributors.
 
 == INSTALL:
 
-  git-clone git://github.com/dchelimsky/rspec-dev.git
+  git clone git://github.com/dchelimsky/rspec-dev.git
   cd rspec-dev
   rake git:update
 
@@ -27,15 +27,21 @@ In order to run RSpec's full suite of examples (rake pre_commit) you must instal
 * heckle        # Required if you use the --heckle switch
 * hpricot       # Used for parsing HTML from the HTML output formatter in RSpec's own specs
 
+You can easily install all gems by using geminstaller.
+
+  sudo gem install geminstaller
+  cd /path/to/rspec-dev
+  sudo geminstaller
+
 Once those are all installed, you should be able to run the suite with the following steps:
 
-* cd /path/to/rspec-dev
-* rake install_dependencies
-* cd example_rails_app
-* export RSPEC_RAILS_VERSION=2.1.0
-* rake rspec:generate_sqlite3_config
-* cd ..
-* rake pre_commit
+  cd /path/to/rspec-dev
+  rake install_dependencies
+  cd example_rails_app
+  export RSPEC_RAILS_VERSION=2.1.0
+  rake rspec:generate_sqlite3_config
+  cd ..
+  rake pre_commit
 
 Note that RSpec itself - once built - doesn't have any dependencies outside
 the Ruby core and stdlib - with a few exceptions:

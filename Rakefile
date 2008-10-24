@@ -1,7 +1,5 @@
 dir = File.dirname(__FILE__)
 $:.unshift(File.expand_path("#{dir}/lib"))
-$:.unshift(File.expand_path("#{dir}/example_rails_app/vendor/plugins/rspec/lib"))
-require 'spec'
 require "rspec/git"
 require 'rubyforge'
 
@@ -38,11 +36,6 @@ if git.plugins_fetched?
   desc "Runs pre_commit_core and pre_commit_rails"
   task :pre_commit do
     pre_commit.pre_commit
-  end
-  
-  desc "Makes sure the correct versions of gems are on the system"
-  task :check_for_gem_dependencies do
-    pre_commit.check_for_gem_dependencies
   end
   
   desc "Runs pre_commit against rspec (core)"
