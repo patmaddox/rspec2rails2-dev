@@ -33,9 +33,9 @@ $ spec examples
 Very simple and to the point. Passing examples are indicated by a '.', failing ones by a 'F'. Note that failure indicates a violated expectation as well as an unexpected exception being raised.  Here are examples of both:
 
 <pre>
-$ spec failing_examples/team_spec.rb
+$ spec examples/failing/team_spec.rb
 
-<%= `ruby docspec.rb failing_examples/predicate_example.rb` %>
+<%= `ruby docspec.rb examples/failing/predicate_example.rb` %>
 </pre>
 
 h2. Command line options

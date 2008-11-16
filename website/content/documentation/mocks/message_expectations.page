@@ -46,13 +46,13 @@ The <code>args</code> argument is a series of arguments (e.g. 1, 2, 3) that are
 expected to be passed as arguments to the associated message.
 
 <% coderay do -%>
-my_mock.should_receive(:msg).with(:no_args)
+my_mock.should_receive(:msg).with(no_args())
 <% end -%>
 
 The message (<code>msg</code>) is expected to be passed no arguments.
 
 <% coderay do -%>
-my_mock.should_receive(:msg).with(:any_args)
+my_mock.should_receive(:msg).with(any_args())
 <% end -%>
 
 Any arguments (and any number of arguments) are to be accepted. This includes 
@@ -64,36 +64,51 @@ h3. Argument Constraints
 Constraints can be placed on individual arguments which are looser than value 
 equivalence (as above).
 
-h4. :anything
+h4. anything()
 
 accepts any value for this argument, e.g.:
 
 <% coderay do -%>
-my_mock.should_receive(:msg).with(1, :anything, "A")
+my_mock.should_receive(:msg).with(1, anything(), "A")
 <% end -%>
 
-h4. :numeric
+h4. an_instance_of(<Class>)
 
 accepts any numeric value for this argument, e.g.:
 
 <% coderay do -%>
-my_mock.should_receive(:msg).with(a, :numeric, "b")
+my_mock.should_receive(:msg).with(a, an_instance_of(Fixnum), "b")
 <% end -%>
 
-h4. :boolean
+h4. hash_including(<hash>)
+
+accepts a hash (with or without curly braces) representing part of or the entire expected hash, e.g.:
+
+<% coderay do -%>
+my_mock.should_receive(:msg).with(a, "b", hash_including(:c => 'd'))
+my_mock.should_receive(:msg).with(a, "b", hash_including({:c => 'd'}))
+<% end -%>
+
+These would pass for:
+
+<% coderay do -%>
+my_mock.msg(a, 'b', :c = 'd')
+my_mock.msg(a, 'b', :c = 'd', :e => 'f')
+<% end -%>
+
+but fail without the precise key/value pairs:
+
+<% coderay do -%>
+my_mock.msg(a, 'b', :c = 'e')
+my_mock.msg(a, 'b', :f = 'd')
+<% end -%>
+
+h4. boolean()
 
 accepts a boolean value for this argument, e.g.:
 
 <% coderay do -%>
-my_mock.should_receive(:msg).with(a, :boolean, "b")
-<% end -%>
-
-h4. :string
-
-accepts any string for this argument, e.g.:
-
-<% coderay do -%>
-my_mock.should_receive(:msg).with(a, :string, "b")
+my_mock.should_receive(:msg).with(a, boolean(), "b")
 <% end -%>
   
 h4. duck_type(message(s))
