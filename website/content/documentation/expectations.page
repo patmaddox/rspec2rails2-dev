@@ -11,4 +11,4 @@ h2. Spec::Expectations and Spec::Matchers
 When RSpec executes specifications, it defines <code>#should</code> and <code>#should_not</code> on
 every object in the system. These methods are your entry to the magic of RSpec.
 
-See Spec::Expectations and Spec::Matchers in the "RDoc":../rdoc/index.html for more information.
+See "Spec::Expectations":http://rspec.rubyforge.org/rspec/1.1.11/classes/Spec/Matchers.html and "Spec::Matchers":http://rspec.rubyforge.org/rspec/1.1.11/classes/Spec/Expectations.html for more information.
