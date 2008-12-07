@@ -17,10 +17,10 @@ from the examples (it blocks) using the <code>controller</code> method.
 
 h2. Isolation from views
 
-Spec::Rails has the ability to specify your controllers in complete
-isolation from their related views. This allows you to spec your controllers
-before the views even exist, and will keep the specs from failing when there
-are errors in your views.
+By default, Spec::Rails will run your controller actions in isolation from
+their related views. This allows you to spec your controllers before the views
+even exist, and will keep the specs from failing when there are errors in your
+views.
 
 h2. Optional integration with views
 
@@ -113,24 +113,6 @@ response.should redirect_to('path/to/local/redirect')
 response.should redirect_to('http://test.host/some_controller/some_action')
 response.should redirect_to('http://some.other.domain.com')
 <% end -%>
-
-h2. Rendering Expectations
-
-In addition to response.should render_template, described above, you can state more explicit rendering
-expectations using controller.expect_render and controller.stub_render. If you have an action that
-renders a partial, for example:
-
-<% coderay do -%>
-controller.expect_render(:partial => 'person', :object => @person) #auto-verified
-controller.stub_render(:partial => 'person', :object => @person)   #not verified
-<% end -%>
-
-%{color:red;font-weight:bold}WARNING%: expect_render and stub_render, while very useful, act
-differently from standard Message Expectations (a.k.a. mock expectations), which would never pass calls
-through to the real object. This can be very confusing when there are failures if you're not aware of this
-fact, because some calls will be passed through while others will not. This is especially confusing when
-you use <code>stub_render</code> because, as with all Method Stubs, you will get very little feedback
-about what is going on.
 
 h3. assigns, flash and session
 
