@@ -59,7 +59,7 @@ class PreCommit::RspecOnRails < PreCommit
     # TODO - why is this necessary? Shouldn't the specs leave
     # a clean DB?
     rake_sh "db:test:prepare"
-    sh "ruby vendor/plugins/rspec-rails/stories/all.rb"
+    sh "cucumber vendor/plugins/rspec-rails/features -r vendor/plugins/rspec-rails/features"
   ensure
     cleanup(cleanup_rspec)
   end
