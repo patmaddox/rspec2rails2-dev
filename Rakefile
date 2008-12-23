@@ -1,5 +1,6 @@
 dir = File.dirname(__FILE__)
 $:.unshift(File.expand_path("#{dir}/lib"))
+$:.unshift(File.expand_path("#{dir}/example_rails_app/vendor/plugins/rspec/lib"))
 require "rspec/git"
 require 'rubyforge'
 require 'spec'
