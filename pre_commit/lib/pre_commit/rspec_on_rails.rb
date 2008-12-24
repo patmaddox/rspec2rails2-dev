@@ -54,12 +54,11 @@ class PreCommit::RspecOnRails < PreCommit
     migrate_up
 
     rake_sh "spec"
-    rake_sh "spec:plugins:rspec_on_rails"
-    
-    # TODO - why is this necessary? Shouldn't the specs leave
-    # a clean DB?
-    rake_sh "db:test:prepare"
-    sh "cucumber vendor/plugins/rspec-rails/features -r vendor/plugins/rspec-rails/features"
+
+    Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor/plugins/rspec-rails" do
+      system "rake spec"
+      system "rake features"
+    end
   ensure
     cleanup(cleanup_rspec)
   end
