@@ -56,8 +56,8 @@ class PreCommit::RspecOnRails < PreCommit
     rake_sh "spec"
 
     Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor/plugins/rspec-rails" do
-      system "rake spec"
-      system "rake features"
+      rake_sh "spec"
+      rake_sh "features"
     end
   ensure
     cleanup(cleanup_rspec)
