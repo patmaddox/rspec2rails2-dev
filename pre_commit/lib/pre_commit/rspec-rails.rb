@@ -21,6 +21,7 @@ class PreCommit::RspecOnRails < PreCommit
         end
       end
     end
+    remove_generated_rspec_files
     puts "All specs passed against the following released versions of Rails: #{used_railses.join(", ")}"
     unless used_railses.include?('edge')
       error "There were errors running pre_commit against edge"
