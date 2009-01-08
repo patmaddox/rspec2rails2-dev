@@ -4,4 +4,4 @@ RSPEC_PLUGIN_ROOT = File.expand_path(File.join(RSPEC_DEV_ROOT, *%w[example_rails
 require "pre_commit/pre_commit"
 require "pre_commit/rspec"
 require "pre_commit/core"
-require "pre_commit/rspec_on_rails"
+require "pre_commit/rspec-rails"
