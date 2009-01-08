@@ -4,6 +4,7 @@ class PreCommit::RspecOnRails < PreCommit
     {:version => '2.2.2', :tag => 'v2.2.2'},
     {:version => '2.1.2', :tag => 'v2.1.2'},
     {:version => '2.0.2', :tag => 'v2.0.2'},
+    {:version => '1.2.6', :tag => 'v1.2.6'},
     {:version => 'edge', :tag => 'master'},
   ]
     
@@ -56,7 +57,7 @@ class PreCommit::RspecOnRails < PreCommit
 
     Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor/plugins/rspec-rails" do
       rake_sh "spec"
-      rake_sh "features"
+      rake_sh "features" if rails_version >= "2"
     end
   ensure
     cleanup(cleanup_rspec)
