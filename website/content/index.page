@@ -7,7 +7,7 @@ filter:
 
 h2. <%= @page.title %>
 
-Behaviour Driven Development for Ruby.
+RSpec is the original Behaviour Driven Development framework for Ruby.
 
 h2. Get Started
 

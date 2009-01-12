@@ -6,13 +6,11 @@ filter:
   - textile
 --- 
 
-h2. Executable Examples
+h2. Executable Code Examples
 
-RSpec provides a Domain Specific Language with which you can express executable
-examples of the expected behaviour of a system.
+RSpec provides a Domain Specific Language with which you can express executable examples of the expected behaviour of your code.
 
-Imagine that you were talking to a customer requesting software for her bank.
-Part of that conversation might well look like this:
+Imagine that you were talking to a customer requesting software for her bank. Part of that conversation might well look like this:
 
 <pre>
 You:      Describe an account when it is first created.
@@ -35,8 +33,7 @@ Account, when first created
 - should have a balance of $0
 </pre>
 
-So we use RSpec to <code>#describe</code> <b>Behaviour</b> of a system using <b>Examples</b>
-of how <code>#it</code> should work.
+So we use RSpec to <code>#describe</code> <b>Behaviour</b> of a system using <b>Examples</b> of how <code>#it</code> should work.
 
 h2. A Bit More Detail
 
@@ -59,25 +56,15 @@ Here's how the example might look with some more code filled in:
 end
 <% end -%>
 
-The <code>#describe</code> method returns an <code>ExampleGroup</code> object,
-which contains a group of examples of a particular behaviour of the system
-that you wish to describe. Technically, an <code>ExampleGroup</code> is the
-equivalent of a fixture in xUnit-speak. It is a metaphor for the context in
-which you will execute your example - a set of known objects in a known
-starting state.
+The <code>#describe</code> method returns an <code>ExampleGroup</code> object, which contains a group of examples of a particular behaviour of the system that you wish to describe. Technically, an <code>ExampleGroup</code> is the equivalent of a fixture in xUnit-speak. It is a metaphor for the context in which you will execute your example - a set of known objects in a known starting state.
 
-The <code>#it</code> method returns an <code>Example</code> object, which represents
-an example of the behaviour your are trying to describe.
+The <code>#it</code> method returns an <code>Example</code> object, which represents an example of the behaviour your are trying to describe.
 
-The <code>#before</code> and <code>#after</code> methods are just
-like <code>#setup</code> and <code>#teardown</code> in xUnit. You use them to
-set up the state _before_ each example is executed, and tear down any
-resources _after_ each example.
+The <code>#before</code> and <code>#after</code> methods are just like <code>#setup</code> and <code>#teardown</code> in xUnit. You use them to set up the state _before_ each example is executed, and tear down any resources _after_ each example.
 
 h2. #before and #after
 
-You can use <code>#before</code> and/or <code>#after</code> to define code
-that executes before and after each example or only once per
+You can use <code>#before</code> and/or <code>#after</code> to define code that executes before and after each example or only once per
 <code>ExampleGroup</code>:
 
 <% coderay do -%>describe Thing do
@@ -118,9 +105,7 @@ that executes before and after each example or only once per
 end
 <% end -%>
 
-<b>Warning</b>: The use of <code>#before(:all)</code> and <code>#after(:all)</code> is
-generally discouraged because it introduces dependencies between the Examples.
-Still, it might prove useful for very expensive operations if you know what you are doing.
+<b>Warning</b>: The use of <code>#before(:all)</code> and <code>#after(:all)</code> is generally discouraged because it introduces dependencies between the Examples. Still, it might prove useful for very expensive operations if you know what you are doing.
 
 h2. Helper Methods
 
@@ -141,8 +126,7 @@ end
 
 h2. Reusable Helper Methods
 
-You can include helper methods in multiple ExampleGroups by expressing them within
-a module, and then including that module in your ExampleGroup:
+You can include helper methods in multiple ExampleGroups by expressing them within a module, and then including that module in your ExampleGroup:
 
 <% coderay do -%>module AccountExampleHelperMethods
   def helper_method
@@ -167,8 +151,7 @@ h2. Shared Example Groups
 
 You can create shared example groups and include those groups into other groups.
 
-Suppose you have some behavior that applies to all editions of your product,
-both large and small.
+Suppose you have some behavior that applies to all editions of your product, both large and small.
 
 First, factor out the "shared" behavior:
 
@@ -179,8 +162,7 @@ describe "all editions", :shared => true do
 end
 <% end -%>
 
-then when you need define the behavior for the Large and Small editions, 
-reference the shared behavior using the 'it_should_behave_like' method.
+then when you need define the behavior for the Large and Small editions,  reference the shared behavior using the 'it_should_behave_like' method.
 
 <% coderay do -%>describe "SmallEdition" do
   it_should_behave_like "all editions"
@@ -197,8 +179,7 @@ describe "LargeEdition" do
 end
 <% end -%>
 
-it_should_behave_like will search for an ExampleGroup by its description string, in
-this case, "all editions"
+it_should_behave_like will search for an ExampleGroup by its description string, in this case, "all editions"
 
 All of the following are included from a shared behavior:
 
@@ -280,6 +261,4 @@ it "should say foo" do
 end
 <% end -%>
 
-The output will say PENDING (get the vocal chords working), and the
-example will fail telling you to it is FIXED as soon as the body of
-the block raises no errors.
+The output will say PENDING (get the vocal chords working), and the example will fail telling you to it is FIXED as soon as the body of the block raises no errors.
