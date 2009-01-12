@@ -32,7 +32,3 @@ model.should have(:no).errors_on(:attribute)
 model.should have(1).error_on(:attribute)
 model.should have(3).errors_on(:attribute)
 <% end -%>
-
-h2. Sample Model Examples
-
-<% coderay do -%><%= IO.read "../example_rails_app/spec/models/person_spec.rb" %><% end -%>

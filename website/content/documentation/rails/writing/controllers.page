@@ -137,8 +137,3 @@ Specify the parameters generated from routes.
 <% coderay do -%>
 params_from(:get, "/hello/world").should == {:controller => "hello", :action => "world"}
 <% end -%>
-
-
-h2. Sample Controller Example
-
-<% coderay do -%><%= IO.read "../example_rails_app/spec/controllers/people_controller_spec.rb" %><% end -%>

@@ -18,7 +18,7 @@ into controllers will not cause view specs to fail.
 As noted in the "introduction":index.html, these are great benefits
 but they could hide bugs that exist in the interaction between a controller and its
 view. We strongly recommend combining these isolated view specs with some sort of
-high level integration testing, ideally using "RSpec stories":stories.html
+high level integration testing, ideally using "Cucumber":http://github.com/aslakhellesoy/cucumber
 
 Here are some of the methods available to you, but see "Spec::Rails::Expectations":../../../rdoc-rails/index.html for more detail.
 
@@ -106,7 +106,3 @@ If you wish to mock or stub helper methods, this must be done on the <tt>templat
 <% coderay do -%>
 template.should_receive(:current_user).and_return(mock("user"))
 <% end -%>
-
-h2. Sample View Examples
-
-<% coderay do -%><%= IO.read "../example_rails_app/spec/views/people/list_view_spec.rb" %><% end -%>

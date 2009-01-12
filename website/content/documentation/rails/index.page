@@ -56,14 +56,6 @@ h3. Helper Examples
 
 ... let you specify directly methods that live in your helpers. "Learn more ...":writing/helpers.html.
 
-h3. User Stories for Integration Testing
-
-RSpec 1.1 introduces a Story Runner for running Scenarios related to User Stories.
-This release ships with a new (and somewhat experimental) rails-specific extension
-that supports running scenarios for you rails app. This RailsStory derives from
-ActionController::IntegrationTest, which gives you access to all the services of
-Rails Integration Testing within RSpec Stories/Scenarios. "Learn more ...":writing/stories.html.
-
 h2. Fixtures
 
 You can use fixture in any of your specs, be they model, view, controller, or helper. If you have fixtures that you want to use
@@ -78,8 +70,6 @@ for directories and Rake tasks than what you get from the Test::Unit testing bui
 project
   |
   +--app
-  |
-  +--components
   |
   +--...
   |

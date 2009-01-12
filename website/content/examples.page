@@ -14,8 +14,7 @@ other example groups.
 
 <% coderay do -%><%= IO.read "../example_rails_app/vendor/plugins/rspec/examples/passing/shared_stack_examples.rb" %><% end -%>
 
-And here is the group that runs them. Note the nesting, which is a new feature in
-RSpec 1.1.
+And here is the group that runs them.
 
 <% coderay do -%><%= IO.read "../example_rails_app/vendor/plugins/rspec/examples/passing/stack_spec_with_nested_example_groups.rb" %><% end -%>
 

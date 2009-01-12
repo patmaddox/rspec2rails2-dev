@@ -27,7 +27,3 @@ h3. assigns
 
 Use assigns[:key] to set instance variables to be used in the view that
 includes the helper. See example below.
-
-h2. Example Helper Spec
-
-<% coderay do -%><%= IO.read "../example_rails_app/spec/helpers/people_helper_spec.rb" %><% end -%>
