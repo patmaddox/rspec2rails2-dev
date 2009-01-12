@@ -1,6 +1,6 @@
 --- 
 title: Before and After
-order: 5
+order: 4
 filter:
   - erb
   - textile

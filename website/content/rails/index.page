@@ -1,6 +1,6 @@
 --- 
 title: Spec::Rails
-order: 6
+order: 2
 filter:
   - erb
   - textile

@@ -1,11 +1,12 @@
 --- 
-title:  Overview
+title:  Home
+order: 1
 filter:
   - erb
   - textile
 --- 
 
-h2. <%= @page.title %>
+h2. Overview
 
 RSpec is the original Behaviour Driven Development framework for Ruby.
 

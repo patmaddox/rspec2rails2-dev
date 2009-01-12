@@ -1,6 +1,6 @@
 --- 
-title: CHANGES (rspec)
-order: 3
+title: Changelog
+order: 7
 filter:
   - erb
   - textile

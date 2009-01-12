@@ -1,5 +1,5 @@
 --- 
-title: Spec::Mocks
+title: Mocks and Stubs
 order: 4
 filter:
   - erb
