@@ -163,8 +163,14 @@ class PreCommit::RspecOnRails < PreCommit
     if error_code? || result =~ /not/
       raise "rspec_scaffold failed. #{result}"
     end
+
+    migration_file = Dir['db/migrate/*_create_purchases.rb'].first
+    File.open(migration_file, 'r+') do |migration|
+      body = migration.read.gsub(%r{t\.decimal :amount}, 't.decimal :amount, :precision => 10, :scale => 2')
+      migration.write(body)
+    end
   end
-  
+
   def purchase_migration_version
     "005"
   end
