@@ -20,3 +20,15 @@ if in_memory_database?
   load "#{RAILS_ROOT}/db/schema.rb" # use db agnostic schema by default
   ActiveRecord::Migrator.up('db/migrate') # use migrations
 end
+
+# This fixes an issue with Ruby 1.8.7 & Rails 2.0.2
+# See http://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg528878.html
+unless '1.9'.respond_to?(:force_encoding)
+  String.class_eval do
+    begin
+      remove_method :chars
+    rescue NameError
+      # OK
+    end
+  end
+end
