@@ -9,7 +9,7 @@ filter:
 h2. <%= @page.title %>
 
 RSpec comes with a "Rake":http://rake.rubyforge.org/ task for executing specs.
-See "Spec::Rake::SpecTask":../../rdoc/classes/Spec/Rake/SpecTask.html API for details.
+See "Spec::Rake::SpecTask":http://rspec.rubyforge.org/rspec/1.1.12/classes/Spec/Rake/SpecTask.html API for details.
 
 h3. Rake task example
 
