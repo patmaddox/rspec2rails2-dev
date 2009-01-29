@@ -90,7 +90,7 @@ You can use <code>#before</code> and/or <code>#after</code> to define code that 
   end
 
   after(:each) do
-    # this is before each example
+    # this is after each example
   end
   
   after do
