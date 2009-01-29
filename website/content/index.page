@@ -6,9 +6,21 @@ filter:
   - textile
 --- 
 
+<div style="float:right">
+<a target="_blank" href="http://www.pragprog.com/titles/achbd/the-rspec-book">
+<img width="152" height="182" border="0" title="The RSpec Book" alt="The RSpec Book" src="http://www.pragprog.com/images/covers/190x228/achbd.jpg?1225919437"/>
+</a>
+</div>
+
 h2. Overview
 
 RSpec is the original Behaviour Driven Development framework for Ruby.
+
+h2. The RSpec Book
+
+"The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends":http://www.pragprog.com/titles/achbd/the-rspec-book is now in beta.
+
+The RSpec Book will introduce you to RSpec, Cucumber, and a number of other tools that make up the Ruby BDD family. Replete with tutorials and practical examples, the RSpec Book will help you get your BDD on, taking you from executable requirements to working software that is clean, well tested, well documented, flexible and highly maintainable.
 
 h2. Get Started
 
