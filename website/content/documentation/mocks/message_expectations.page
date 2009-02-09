@@ -239,7 +239,7 @@ as arguments of the message. This capability can be used to compute return
 values based on the arguments.  For example:
 
 <% coderay do -%>
-my_mock.should_receive(:msg).with(:numeric, :numeric) once.and_return {|a, b| a + b}
+my_mock.should_receive(:msg).with(instance_of(Numeric),instance_of(Numeric)).once.and_return {|a, b| a + b}
 <% end -%>
 
 h3. Raising and Throwing
