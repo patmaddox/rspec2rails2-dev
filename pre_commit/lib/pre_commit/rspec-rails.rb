@@ -79,9 +79,6 @@ class PreCommit::RspecOnRails < PreCommit
     raise "Error reverting routes.rb" if shell_error?(output)
   end
 
-  def create_purchase
-  end
-  
   def remove_generated_rspec_files
     rm_rf 'script/autospec'
     rm_rf 'script/spec'
@@ -181,6 +178,9 @@ class PreCommit::RspecOnRails < PreCommit
   end
 
   def destroy_purchase
+    revert_routes
+    migrate_down
+    rm_generated_purchase_files
   end
 
   def migrate_down
@@ -203,6 +203,8 @@ class PreCommit::RspecOnRails < PreCommit
       app/models/purchase.rb
       app/controllers/purchases_controller.rb
       app/views/purchases
+      app/views/layouts/purchases.html.erb
+      public/stylesheets/scaffold.css
       spec/models/purchase_spec.rb
       spec/helpers/purchases_helper_spec.rb
       spec/controllers/purchases_controller_spec.rb
