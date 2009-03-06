@@ -1,7 +1,7 @@
 class PreCommit::RspecOnRails < PreCommit
   
   RAILS_TAGS = [
-    {:version => '2.3.0', :tag => 'v2.3.0'},
+    {:version => '2.3.1', :tag => 'v2.3.1'},
     {:version => '2.2.2', :tag => 'v2.2.2'},
     {:version => '2.1.2', :tag => 'v2.1.2'},
     {:version => '2.0.5', :tag => 'v2.0.5'},
