@@ -16,7 +16,7 @@ class PreCommit
 
   def rake_sh(task_name, env_hash={})
     env = env_hash.collect{|key, value| "#{key}=#{value}"}.join(' ')
-    rake = (PLATFORM == "i386-mswin32") ? "rake.bat" : "rake"
+    rake = (RUBY_PLATFORM == "i386-mswin32") ? "rake.bat" : "rake"
     cmd = "#{rake} #{task_name} #{env} --trace"
     output = silent_sh(cmd)
     if shell_error?(output)

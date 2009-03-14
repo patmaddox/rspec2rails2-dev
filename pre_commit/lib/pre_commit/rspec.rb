@@ -17,7 +17,7 @@ class PreCommit::Rspec < PreCommit
     gem 'RedCloth'
     gem 'syntax'
     gem 'diff-lcs'
-    gem 'heckle' unless PLATFORM == "i386-mswin32"
+    gem 'heckle' unless RUBY_PLATFORM == "i386-mswin32"
     gem 'hpricot'
   end
 
@@ -58,7 +58,7 @@ class PreCommit::Rspec < PreCommit
   
   def pre_commit_core
     Dir.chdir "#{RSPEC_PLUGIN_ROOT}/rspec" do
-      rake = (PLATFORM == "i386-mswin32") ? "rake.bat" : "rake"
+      rake = (RUBY_PLATFORM == "i386-mswin32") ? "rake.bat" : "rake"
       system("#{rake} --verbose --trace")
       raise "RSpec Core pre_commit failed" if error_code?
     end    
@@ -66,7 +66,7 @@ class PreCommit::Rspec < PreCommit
 
   def pre_commit_textmate_bundle
     Dir.chdir "#{RSPEC_DEV_ROOT}/RSpec.tmbundle/Support" do
-      rake = (PLATFORM == "i386-mswin32") ? "rake.bat" : "rake"
+      rake = (RUBY_PLATFORM == "i386-mswin32") ? "rake.bat" : "rake"
       system("#{rake} spec --verbose --trace")
       raise "RSpec Textmate Bundle specs failed" if error_code?
     end    
@@ -86,7 +86,7 @@ class PreCommit::Rspec < PreCommit
 
   def pre_commit_rails
     Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app" do
-      rake = (PLATFORM == "i386-mswin32") ? "rake.cmd" : "rake"
+      rake = (RUBY_PLATFORM == "i386-mswin32") ? "rake.cmd" : "rake"
       cmd = "#{rake} -f Multirails.rake pre_commit --trace"
       system(cmd)
       if error_code?

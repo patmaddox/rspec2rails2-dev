@@ -35,14 +35,14 @@ class PreCommit::Core < PreCommit
 
   def rdoc
     Dir.chdir "#{RSPEC_PLUGIN_ROOT}/rspec" do
-      rake = (PLATFORM == "i386-mswin32") ? "rake.cmd" : "rake"
+      rake = (RUBY_PLATFORM == "i386-mswin32") ? "rake.cmd" : "rake"
       `#{rake} rdoc`
     end
   end
 
   def rdoc_rails
     Dir.chdir "#{RSPEC_PLUGIN_ROOT}/rspec-rails" do
-      rake = (PLATFORM == "i386-mswin32") ? "rake.cmd" : "rake"
+      rake = (RUBY_PLATFORM == "i386-mswin32") ? "rake.cmd" : "rake"
       `#{rake} rdoc`
     end
   end
