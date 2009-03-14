@@ -1,18 +1,10 @@
 .CodeRay {
-  padding: 0em;
-  margin: 1.3em;
-  background-color: #eee;
-  border: 1px solid #aaa;
-  font: 1.1em Monaco, 'Courier New', 'Terminal', monospace;
+  background-color: #f8f8f8;
+  border: 1px solid silver;
+  font-family: 'Courier New', 'Terminal', monospace;
   color: #100;
 }
-
-.CodeRay pre {
-  padding: 0px;
-  margin: 0px;
-  background-color: transparent;
-  border: none;
-}
+.CodeRay pre { margin: 0px }
 
 div.CodeRay { }
 
@@ -28,18 +20,19 @@ table.CodeRay td { padding: 2px 4px; vertical-align: top }
 }
 .CodeRay .line_numbers tt { font-weight: bold }
 .CodeRay .no { padding: 0px 4px }
+.CodeRay .code { width: 100% }
 
 ol.CodeRay { font-size: 10pt }
 ol.CodeRay li { white-space: pre }
 
-.CodeRay .debug { color:white ! important; background:blue ! important; }
+.CodeRay .code pre { overflow: auto }
 
 .CodeRay .af { color:#00C }
 .CodeRay .an { color:#007 }
 .CodeRay .av { color:#700 }
 .CodeRay .aw { color:#C00 }
 .CodeRay .bi { color:#509; font-weight:bold }
-.CodeRay .c  { color:#666; }
+.CodeRay .c  { color:#006666; font-weight:500; }
 
 .CodeRay .ch { color:#04D }
 .CodeRay .ch .k { color:#04D }
@@ -62,26 +55,26 @@ ol.CodeRay li { white-space: pre }
 .CodeRay .fu { color:#06B; font-weight:bold }
 .CodeRay .gv { color:#d70; font-weight:bold }
 .CodeRay .hx { color:#058; font-weight:bold }
-.CodeRay .i  { color:#00D; font-weight:bold }
+.CodeRay .i  { color:#00D; }
 .CodeRay .ic { color:#B44; font-weight:bold }
 
 .CodeRay .il { background: #eee }
 .CodeRay .il .il { background: #ddd }
 .CodeRay .il .il .il { background: #ccc }
-.CodeRay .il .idl { font-weight: bold; color: #888 }
+.CodeRay .il .dl { font-weight: bold ! important; color: #888 ! important }
 
 .CodeRay .in { color:#B2B; font-weight:bold }
 .CodeRay .iv { color:#33B }
 .CodeRay .la { color:#970; font-weight:bold }
 .CodeRay .lv { color:#963 }
 .CodeRay .oc { color:#40E; font-weight:bold }
-.CodeRay .of { color:#000; font-weight:bold }
+.CodeRay .on { color:#000; font-weight:bold }
 .CodeRay .op { }
 .CodeRay .pc { color:#038; font-weight:bold }
 .CodeRay .pd { color:#369; font-weight:bold }
 .CodeRay .pp { color:#579 }
 .CodeRay .pt { color:#339; font-weight:bold }
-.CodeRay .r  { color:#080; font-weight:bold }
+.CodeRay .r  { color:#151B8D; font-weight:bold }
 
 .CodeRay .rx { background-color:#fff0ff }
 .CodeRay .rx .k { color:#808 }
@@ -89,11 +82,10 @@ ol.CodeRay li { white-space: pre }
 .CodeRay .rx .mod { color:#C2C }
 .CodeRay .rx .fu  { color:#404; font-weight: bold }
 
-.CodeRay .s  { background-color:#fff0f0 }
 .CodeRay .s  .s { background-color:#ffe0e0 }
 .CodeRay .s  .s  .s { background-color:#ffd0d0 }
-.CodeRay .s  .k { color:#D20 }
-.CodeRay .s  .dl { color:#710 }
+.CodeRay .s  .k { color:#348017; font-weight: bold;}
+.CodeRay .s  .dl { color:#348017 }
 
 .CodeRay .sh { background-color:#f0fff0 }
 .CodeRay .sh .k { color:#2B2 }

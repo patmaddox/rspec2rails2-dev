@@ -4,7 +4,7 @@ body {
   background-color:#fff;
   font-family:"Trebuchet MS",arial,sans-serif;
   font-size:62.5%;
-  color:#777;
+  color:#4C4646;
   margin:0;
   padding:0;
 }
@@ -197,37 +197,3 @@ acronym {
 }
 
 /* Ruby code, style similar to vibrant ink */
-pre.ruby {
-  font-size: 10px;
-  font-family: monospace;
-  color: white;
-  background-color: black;
-  padding: 0.1em 0 0.2em 0;
-}
-
-.keyword { color: #FF6600; }
-.constant { color: #339999; }
-.attribute { color: white; }
-.global { color: white; }
-.module { color: white; }
-.class { color: white; }
-.string { color: #66FF00; }
-.ident { color: white; }
-.method { color: #FFCC00; }
-.number { color: white; }
-.char { color: white; }
-.comment { color: #9933CC; }
-.symbol { color: white; }
-.regex { color: #44B4CC; }
-.punct { color: white; }
-.escape { color: white; }
-.interp { color: white; }
-.expr { color: white; }
-
-.offending { background-color: gray; }
-.linenum {
-	width: 75px;
-	padding: 0.1em 1em 0.2em 0;
-	color: #000000;
-	background-color: #FFFBD3;
-}
