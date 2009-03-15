@@ -1,6 +1,6 @@
 class PreCommit::Rspec < PreCommit
   def pre_commit
-    check_for_gem_dependencies
+    # check_for_gem_dependencies
     fix_cr_lf
     touch_revision_storing_files
     pre_commit_core
@@ -12,13 +12,16 @@ class PreCommit::Rspec < PreCommit
   def check_for_gem_dependencies
     require "rubygems"
     gem 'rake'
-    # gem 'webby'
-    gem 'coderay'
-    gem 'RedCloth'
     gem 'syntax'
     gem 'diff-lcs'
-    gem 'heckle' unless RUBY_PLATFORM == "i386-mswin32"
-    gem 'hpricot'
+
+    if RUBY_VERSION =~ /^1.8/
+      gem 'webby'
+      gem 'coderay'
+      gem 'RedCloth'
+      gem 'heckle' unless RUBY_PLATFORM == "i386-mswin32"
+      gem 'nokogiri'
+    end
   end
 
   def fix_cr_lf

@@ -1,12 +1,13 @@
 class PreCommit::RspecOnRails < PreCommit
   
-  RAILS_TAGS = [
-    {:version => '2.3.1', :tag => 'v2.3.1'},
-    {:version => '2.2.2', :tag => 'v2.2.2'},
-    {:version => '2.1.2', :tag => 'v2.1.2'},
-    {:version => '2.0.5', :tag => 'v2.0.5'},
-    {:version => 'edge', :tag => 'master'},
-  ]
+  RAILS_TAGS = []
+  RAILS_TAGS << {:version => '2.3.1', :tag => 'v2.3.1'}
+  unless RUBY_VERSION =~ /^1\.9/
+    RAILS_TAGS << {:version => '2.2.2', :tag => 'v2.2.2'}
+    RAILS_TAGS << {:version => '2.1.2', :tag => 'v2.1.2'}
+    RAILS_TAGS << {:version => '2.0.5', :tag => 'v2.0.5'}
+  end
+  RAILS_TAGS << {:version => 'edge', :tag => 'master'}
     
   def pre_commit
     check_dependencies

@@ -1,17 +1,6 @@
 class PreCommit::Core < PreCommit
   def pre_commit
     rake_invoke :examples
-    website
-  end
-
-  def website(run_webby=true)
-    clobber
-    rake_invoke :verify_rcov
-    rake_invoke :spec_html
-    # webby
-    rake_invoke :failing_examples_with_html
-    rdoc
-    rdoc_rails
   end
 
   def clobber
