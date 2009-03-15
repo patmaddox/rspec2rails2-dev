@@ -19,53 +19,27 @@ Customer: It should have a balance of $0.
 
 Here's how we express that conversation in RSpec:
 
-<% coderay do -%>describe Account, " when first created" do
+<% coderay do -%>describe Account, "when first created" do
   it "should have a balance of $0" do
     ...
   end
 end
 <% end -%>
 
-When you execute this example, RSpec can provide a report like this:
+The <code>describe()</code> method returns an <code>ExampleGroup</code> class, which contains a group of examples of a particular behaviour of the system that you wish to describe.
+
+The <code>it()</code> method returns an instance of the <code>ExampleGroup</code> in which that example is run.
+
+When you run this example, RSpec can provide a report like this:
 
 <pre>
-Account, when first created
+Account when first created
 - should have a balance of $0
 </pre>
 
-So we use RSpec to <code>describe()</code> <i>Behaviour</i> of a system using <i>Examples</i> of how <code>it()</code> should work.
-
-h2. A Bit More Detail
-
-Here's how the example might look with some more code filled in:
-
-<% coderay do -%>describe Account, " when first created" do
-
-  before do
-    @account = Account.new
-  end
-
-  it "should have a balance of $0" do
-    @account.balance.should eql(Money.new(0, :dollars))
-  end
-  
-  after do
-    @account = nil
-  end
-
-end
-<% end -%>
-
-The <code>describe()</code> method returns an <code>ExampleGroup</code> object, which contains a group of examples of a particular behaviour of the system that you wish to describe. Technically, an <code>ExampleGroup</code> is the equivalent of a fixture in xUnit-speak. It is a metaphor for the context in which you will execute your example - a set of known objects in a known starting state.
-
-The <code>it()</code> method returns an <code>Example</code> object, which represents an example of the behaviour your are trying to describe.
-
-The <code>before()</code> and <code>after()</code> methods are just like <code>setup()</code> and <code>teardown()</code> in xUnit. You use them to set up the state _before_ each example is executed, and tear down any resources _after_ each example.
-
 h2. before() and after()
 
-You can use <code>()before</code> and/or <code>after()</code> to define code that executes before and after each example or only once per
-<code>ExampleGroup</code>:
+You can use <code>before()</code> and/or <code>after()</code> to define code that executes before and after each example or only once per <code>ExampleGroup</code>:
 
 <% coderay do -%>describe Thing do
   before(:all) do
@@ -156,7 +130,7 @@ Suppose you have some behavior that applies to all editions of your product, bot
 First, factor out the "shared" behavior:
 
 <% coderay do -%>
-describe "all editions", :shared => true do
+shared_examples_for "all editions" do
   it "should behave like all editions" do
   end
 end
@@ -184,7 +158,7 @@ end
 <code>it_should_behave_like</code> will search for an ExampleGroup by its
 description string, in this case, "all editions"
 
-All of the following are included from a shared behavior:
+All of the following are included from a shared group:
 
 * before(:all)
 * before(:each)
@@ -199,13 +173,13 @@ Multiple shared example groups may be referenced in one (non-shared) group.
 
 Shared example groups may be included in other shared groups:
 
-<% coderay do -%>describe "All Employees", :shared => true do
+<% coderay do -%>shared_examples_for "All Employees" do
   it "should be payable" do
     @employee.should respond_to(:calculate_pay)
   end
 end
 
-describe "All Managers", :shared => true do
+shared_examples_for "All Managers" do
   it_should_behave_like "All Employees"
   it "should be bonusable" do
     @employee.should respond_to(:apply_bonus)
