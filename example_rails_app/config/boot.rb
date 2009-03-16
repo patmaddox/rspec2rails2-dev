@@ -18,7 +18,7 @@ module Rails
   end
 end
 
-ENV['RSPEC_RAILS_VERSION'] ||= "2.3.0"
+ENV['RSPEC_RAILS_VERSION'] ||= "2.3.1"
 puts "running against rails #{ENV['RSPEC_RAILS_VERSION']}"
 
 unless defined?(Rails::Initializer)
