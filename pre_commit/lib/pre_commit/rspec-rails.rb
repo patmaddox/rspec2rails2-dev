@@ -1,30 +1,30 @@
 class PreCommit::RspecOnRails < PreCommit
   
   RAILS_TAGS = []
-  RAILS_TAGS << {:version => '2.3.1', :tag => 'v2.3.1'}
+  RAILS_TAGS << 'v2.3.2'
   unless RUBY_VERSION =~ /^1\.9/
-    RAILS_TAGS << {:version => '2.2.2', :tag => 'v2.2.2'}
-    RAILS_TAGS << {:version => '2.1.2', :tag => 'v2.1.2'}
-    RAILS_TAGS << {:version => '2.0.5', :tag => 'v2.0.5'}
+    RAILS_TAGS << 'v2.2.2'
+    RAILS_TAGS << 'v2.1.2'
+    RAILS_TAGS << 'v2.0.5'
   end
-  RAILS_TAGS << {:version => 'edge', :tag => 'master'}
-    
+  RAILS_TAGS << 'master'
+
   def pre_commit
     check_dependencies
     used_railses = []
     RAILS_TAGS.each do |tag|
       begin
-        rspec_pre_commit(tag[:version], false)
-        used_railses << tag[:version]
+        rspec_pre_commit(tag, false)
+        used_railses << tag
       rescue Exception => e
-        unless tag[:version] == 'edge'
+        unless tag == 'master'
           raise e
         end
       end
     end
     remove_generated_rspec_files
     puts "All specs passed against the following released versions of Rails: #{used_railses.join(", ")}"
-    unless used_railses.include?('edge')
+    unless used_railses.include?('master')
       error "There were errors running pre_commit against edge"
     end
   end
@@ -33,15 +33,15 @@ class PreCommit::RspecOnRails < PreCommit
     File.basename(rails_dir)
   end
 
-  def rspec_pre_commit(rails_version=ENV['RSPEC_RAILS_VERSION'],cleanup_rspec=true)
+  def rspec_pre_commit(rails_version=ENV['RAILS_VERSION_FOR_RSPEC'],cleanup_rspec=true)
     puts "#####################################################"
     puts "running pre_commit against rails #{rails_version}"
-    ENV['RSPEC_RAILS_VERSION'] = rails_version
-    pair = RAILS_TAGS.find{|pair| pair[:version] == rails_version}
-    raise "#{rails_version} is not a :version in #{RAILS_TAGS.inspect}" unless pair
+    ENV['RAILS_VERSION_FOR_RSPEC'] = rails_version
+    tag = RAILS_TAGS.find{|tag| tag == rails_version}
+    raise "#{rails_version} is not a :version in #{RAILS_TAGS.inspect}" unless tag
     puts "#####################################################"
     Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor/rails" do
-      sh "git checkout #{pair[:tag]}"
+      sh "git checkout #{tag}"
     end
     puts "#####################################################"
     ensure_db_config
