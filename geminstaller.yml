@@ -10,3 +10,4 @@ gems:
 - name: RedCloth
 - name: rubyforge
 - name: syntax
+- name: rr
