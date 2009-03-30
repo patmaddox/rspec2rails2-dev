@@ -14,6 +14,9 @@ class PreCommit::Rspec < PreCommit
     gem 'rake'
     gem 'syntax'
     gem 'diff-lcs'
+    gem 'mocha'
+    gem 'flexmock'
+    gem 'rr'
 
     if RUBY_VERSION =~ /^1.8/
       gem 'webby'
