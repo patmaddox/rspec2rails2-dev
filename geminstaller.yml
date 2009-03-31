@@ -1,16 +1,17 @@
 gems:
+- name: RedCloth
 - name: coderay
+- name: cucumber
 - name: diff-lcs
 - name: flexmock
 - name: heckle
 - name: hoe
-- name: hpricot
+- name: nokogiri
+- name: mocha
+- name: rack
 - name: rake
 - name: rcov
-- name: RedCloth
+- name: rr
+- name: ruby-debug
 - name: rubyforge
 - name: syntax
-- name: rr
-- name: mocha
-- name: ruby-debug
-- name: rack

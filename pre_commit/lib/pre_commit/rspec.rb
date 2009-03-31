@@ -11,19 +11,25 @@ class PreCommit::Rspec < PreCommit
   
   def check_for_gem_dependencies
     require "rubygems"
-    gem 'rake'
-    gem 'syntax'
+    gem 'cucumber'
     gem 'diff-lcs'
-    gem 'mocha'
     gem 'flexmock'
+    gem 'hoe'
+    gem 'mocha'
+    gem 'rack'
+    gem 'rake'
+    gem 'rcov'
     gem 'rr'
+    gem 'ruby-debug'
+    gem 'rubyforge'
+    gem 'syntax'
 
     if RUBY_VERSION =~ /^1.8/
-      gem 'webby'
-      gem 'coderay'
       gem 'RedCloth'
+      gem 'coderay'
       gem 'heckle' unless RUBY_PLATFORM == "i386-mswin32"
       gem 'nokogiri'
+      gem 'webby'
     end
   end
 
