@@ -11,3 +11,6 @@ gems:
 - name: rubyforge
 - name: syntax
 - name: rr
+- name: mocha
+- name: ruby-debug
+- name: rack
