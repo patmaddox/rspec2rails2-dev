@@ -34,6 +34,7 @@ class PreCommit::RspecOnRails < PreCommit
   end
 
   def rspec_pre_commit(rails_version=ENV['RAILS_VERSION_FOR_RSPEC'],cleanup_rspec=true)
+    rails_version ||= RAILS_TAGS.first
     puts "#####################################################"
     puts "running pre_commit against rails #{rails_version}"
     ENV['RAILS_VERSION_FOR_RSPEC'] = rails_version
