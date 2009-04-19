@@ -3,6 +3,10 @@ $:.unshift(File.expand_path("#{dir}/lib"))
 require "rspec/git"
 require 'rubyforge'
 
+rspec_root = File.expand_path(File.join(File.dirname(__FILE__), "/example_rails_app/vendor/plugins/rspec/lib"))
+$:.unshift(rspec_root) unless $:.include?(rspec_root)
+require 'spec/version'
+
 def git
   RSpec::Git.new
 end
