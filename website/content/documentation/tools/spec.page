@@ -27,7 +27,7 @@ Any number of files, directories and shell globs can be provided, all ruby sourc
 <pre>
 $ spec examples
 
-<%= `spec docspec.rb examples` %>
+<%= `ruby docspec.rb examples/passing` %>
 </pre>
 
 Very simple and to the point. Passing examples are indicated by a '.', failing ones by a 'F'. Note that failure indicates a violated expectation as well as an unexpected exception being raised.  Here are examples of both:
