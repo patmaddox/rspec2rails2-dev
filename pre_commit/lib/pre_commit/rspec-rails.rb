@@ -7,7 +7,6 @@ class PreCommit::RspecOnRails < PreCommit
     RAILS_TAGS << 'v2.1.2'
     RAILS_TAGS << 'v2.0.5'
   end
-  RAILS_TAGS << 'master'
 
   def pre_commit
     check_dependencies
