@@ -59,7 +59,6 @@ class PreCommit::RspecOnRails < PreCommit
 
     Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor/plugins/rspec-rails" do
       rake_sh "spec"
-      rake_sh "features" if rails_version >= "2"
     end
   ensure
     cleanup(cleanup_rspec)
@@ -210,6 +209,7 @@ class PreCommit::RspecOnRails < PreCommit
       spec/helpers/purchases_helper_spec.rb
       spec/controllers/purchases_controller_spec.rb
       spec/routing/purchases_routing_spec.rb
+      spec/integration/managing_purchases_spec.rb
       spec/fixtures/purchases.yml
       spec/views/purchases
     }
