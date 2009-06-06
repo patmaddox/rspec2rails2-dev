@@ -173,7 +173,8 @@ Multiple shared example groups may be referenced in one (non-shared) group.
 
 Shared example groups may be included in other shared groups:
 
-<% coderay do -%>shared_examples_for "All Employees" do
+<% coderay do -%>
+shared_examples_for "All Employees" do
   it "should be payable" do
     @employee.should respond_to(:calculate_pay)
   end
@@ -189,9 +190,10 @@ end
 describe Officer do
   before(:each) do
     @employee = Officer.new
-  new
+  end
+
   it_should_behave_like "All Managers"
-  
+
   it "should be optionable" do
     @employee.should respond_to(:grant_options)
   end
