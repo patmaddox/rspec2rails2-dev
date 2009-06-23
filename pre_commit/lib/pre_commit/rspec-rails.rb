@@ -1,5 +1,7 @@
 class PreCommit::RspecOnRails < PreCommit
   
+  MASTER = 'origin/2-3-stable'
+
   RAILS_TAGS = []
   RAILS_TAGS << 'v2.3.2'
   unless RUBY_VERSION =~ /^1\.9/
@@ -7,6 +9,7 @@ class PreCommit::RspecOnRails < PreCommit
     RAILS_TAGS << 'v2.1.2'
     RAILS_TAGS << 'v2.0.5'
   end
+  RAILS_TAGS << MASTER
 
   def pre_commit
     check_dependencies
@@ -16,15 +19,17 @@ class PreCommit::RspecOnRails < PreCommit
         rspec_pre_commit(tag, false)
         used_railses << tag
       rescue Exception => e
-        unless tag == 'master'
+        unless tag == MASTER
           raise e
         end
       end
     end
     remove_generated_rspec_files
     puts "All specs passed against the following released versions of Rails: #{used_railses.join(", ")}"
-    unless used_railses.include?('master')
-      error "There were errors running pre_commit against edge"
+    if MASTER
+      unless used_railses.include?(MASTER)
+        error "There were errors running pre_commit against edge"
+      end
     end
   end
 
@@ -209,7 +214,7 @@ class PreCommit::RspecOnRails < PreCommit
       spec/helpers/purchases_helper_spec.rb
       spec/controllers/purchases_controller_spec.rb
       spec/routing/purchases_routing_spec.rb
-      spec/integration/managing_purchases_spec.rb
+      spec/integration/purchases_spec.rb
       spec/fixtures/purchases.yml
       spec/views/purchases
     }
