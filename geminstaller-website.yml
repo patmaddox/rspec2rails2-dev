@@ -1,0 +1,10 @@
+# Additional gems needed to build the website and/or publish gems
+gems:
+- name: RedCloth
+  version: '>= 4.1.1'
+- name: coderay
+  version: '>= 0.8'
+- name: rubyforge
+  version: '>= 1.0.3'
+- name: syntax
+  version: '>= 1.0.0'
