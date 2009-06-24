@@ -1,5 +1,6 @@
 *.svn
 */tmtags
+repos.yml
 RSpec.tmbundle
 example_rails_app/config/database.yml
 example_rails_app/db/schema.rb

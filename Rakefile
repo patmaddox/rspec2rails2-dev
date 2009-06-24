@@ -17,6 +17,11 @@ namespace :git do
     git.update
   end
 
+  desc "Status rspec-dev & sub-projects"
+  task :status do
+    git.status
+  end
+
   desc "Update rspec-dev & sub-projects"
   task :pull => :update
 
@@ -31,7 +36,7 @@ namespace :git do
   end
 end
 
-if git.plugins_fetched?
+if git.repos_fetched?
   $LOAD_PATH.unshift(File.expand_path("#{dir}/pre_commit/lib"))
   require "pre_commit"
   

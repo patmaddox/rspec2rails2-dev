@@ -1,7 +1,7 @@
 module RSpec
   class Git
-    def plugins_fetched?
-      submodules.all? {|s| File.directory?(s[:path]) }
+    def repos_fetched?
+      repos.all? {|s| File.directory?(s[:path]) }
     end
     
     def update
@@ -112,22 +112,20 @@ module RSpec
     end
     
     def repos
-      [submodules, superproject].flatten
+      @yaml = YAML.load_file(File.join(File.dirname(__FILE__), "/../../repos.yml"))
+      @yaml[:repos]
     end
 
-    def superproject
-      {:name => "rspec-dev", :path => ".",
-       :url => "#{url_prefix}/rspec-dev.git"}
-    end
-    
-    def submodules
+    def subprojects
       [
        {:name => "TextMate Bundle", :path => 'RSpec.tmbundle',
         :url => "#{url_prefix}/rspec-tmbundle.git" },
        {:name => "rspec", :path => 'example_rails_app/vendor/plugins/rspec',
         :url => "#{url_prefix}/rspec.git"},
        {:name => "rspec-rails", :path => 'example_rails_app/vendor/plugins/rspec-rails',
-        :url => "#{url_prefix}/rspec-rails.git"}
+        :url => "#{url_prefix}/rspec-rails.git"},
+       {:name => "rails", :path => 'example_rails_app/vendor/rails',
+        :url => "git://github.com/rails/rails.git"}
       ]
     end
 
