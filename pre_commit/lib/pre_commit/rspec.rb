@@ -84,18 +84,6 @@ class PreCommit::Rspec < PreCommit
     end    
   end
 
-  def install_dependencies
-    Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app" do
-      rake_sh("-f Multirails.rake install_dependencies")
-    end
-  end
-
-  def update_dependencies
-    Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app" do
-      rake_sh("-f Multirails.rake update_dependencies")
-    end
-  end
-
   def pre_commit_rails
     Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app" do
       rake = (RUBY_PLATFORM == "i386-mswin32") ? "rake.cmd" : "rake"

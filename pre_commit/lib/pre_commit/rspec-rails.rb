@@ -305,32 +305,13 @@ class PreCommit::RspecOnRails < PreCommit
     files.each {|file| rm_rf file}
   end
 
-  def install_dependencies
-    if File.exist?("#{RSPEC_DEV_ROOT}/example_rails_app/vendor/rails/.git")
-      puts "Rails is already installed"
-    else
-      if File.exist?("#{RSPEC_DEV_ROOT}/example_rails_app/vendor/rails")
-        sh "rm -rf #{RSPEC_DEV_ROOT}/example_rails_app/vendor/rails"
-      end
-      Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor" do
-        puts "cloning rails - this might take a while"
-        sh "git clone git://github.com/rails/rails.git"
-      end
-    end
-  end
-
   def check_dependencies
-    unless File.exist?("#{RSPEC_DEV_ROOT}/example_rails_app/vendor/rails/.git")
-      raise "Rails is not installed. Please run 'rake install_dependencies'"
+    ['plugins/rspec/.git','plugins/rspec-rails/.git','rails/.git'].each do |dep|
+      unless File.exist?("#{RSPEC_DEV_ROOT}/example_rails_app/vendor/#{dep}")
+        name = dep.sub(/\/\.git/,'').split('/').last
+        raise "#{name} is not installed. Please run 'rake git:update'"
+      end
     end
   end
   
-  def update_dependencies
-    check_dependencies
-    Dir.chdir "#{RSPEC_DEV_ROOT}/example_rails_app/vendor/rails" do
-      sh "git checkout master"
-      sh "git pull"
-    end
-  end
-
 end

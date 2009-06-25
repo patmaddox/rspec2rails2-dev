@@ -92,7 +92,13 @@ module RSpec
       end
     end
 
-    private
+    def repos
+      @yaml ||= YAML.load_file(File.join(File.dirname(__FILE__), "/../../repos.yml"))
+      @yaml[:repos]
+    end
+
+  private
+
     def check_for_clean_repos(message)
       unless all_repos_clean?
         puts "*** #{message} ***"
@@ -111,11 +117,6 @@ module RSpec
       end
     end
     
-    def repos
-      @yaml = YAML.load_file(File.join(File.dirname(__FILE__), "/../../repos.yml"))
-      @yaml[:repos]
-    end
-
     def subprojects
       [
        {:name => "TextMate Bundle", :path => 'RSpec.tmbundle',

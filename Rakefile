@@ -76,16 +76,6 @@ if git.repos_fetched?
     rm_rf 'doc/output'
   end
   
-  desc "Installs dependencies for development environment"
-  task :install_dependencies do
-    pre_commit.install_dependencies
-  end
-  
-  desc "Updates dependencies for development environment"
-  task :update_dependencies do
-    pre_commit.update_dependencies
-  end
-
   desc "Build the website, but do not publish it"
   task(:website) {core.website}
 
@@ -117,13 +107,10 @@ if git.repos_fetched?
       git.add_remotes
     end
   end
+else
+  puts "Missing repos - check repos.yml and run 'rake git:update'"
+  puts YAML.dump(git.repos)
 end
-
-# desc "Run all specs and store html output in doc/output/report.html"
-# Spec::Rake::SpecTask.new('spec_html') do |t|
-#   t.spec_files = FileList['spec/**/*_spec.rb']
-#   t.spec_opts = ['--format html:../../../../doc/output/report.html', '--format progress','--backtrace']
-# end
 
 def assign_version
   ENV["VERSION"] or abort "Must supply VERSION=x.y.z"

@@ -12,20 +12,37 @@ This project is for RSpec developers/contributors.
 
   git clone git://github.com/dchelimsky/rspec-dev.git
   cd rspec-dev
+  cp repos.yml.sample repos.yml
+
+Take a look at repos.yml, which is used to configure all of the other git
+repositories that you'll need to do rspec-rails development. The sample file
+is configured to point to public github urls for each repository. If you have
+forks of any of the repos, or if you are an rspec core committer, change the
+urls accordingly so that you'll be able to seamlessly push to github.
+
+Once that's confifigured:
+
   rake git:update
 
-== RUNNING EXAMPLES:
+== RUNNING SPECS:
 
-In order to run RSpec's full suite of examples (rake pre_commit) you must install the following gems:
+In order to run RSpec's full suite of specs (rake pre_commit) you must install
+the following gems:
 
-* rake          # Runs the build script
-* rcov          # Verifies that the code is 100% covered by specs
-* syntax        # Required to highlight ruby code
-* diff-lcs      # Required if you use the --diff switch
+* cucumber  # BDD framework for automating scenarios
+* diff-lcs  # Required if you use the --diff switch
+* flexmock  # Mocking/stubbing framework
+* heckle    # Required if you use the --heckle switch
+* hoe       # Required in order to make releases at RubyForge
+* mocha     # Mocking/stubbing framework
+* nokogiri  # Used for parsing HTML from the HTML output formatter in RSpec's own specs
+* rake      # Runs the build script
+* rcov      # Verifies that the code is 100% covered by specs
+* rr        # Mocking/stubbing framework
+
+If you're on windows, you'll also need:
+
 * win32console  # Required by the --colour switch if you're on Windows
-* hoe           # Required in order to make releases at RubyForge
-* heckle        # Required if you use the --heckle switch
-* hpricot       # Used for parsing HTML from the HTML output formatter in RSpec's own specs
 
 You can easily install all gems by using geminstaller.
 
@@ -36,12 +53,16 @@ You can easily install all gems by using geminstaller.
 Once those are all installed, you should be able to run the suite with the following steps:
 
   cd /path/to/rspec-dev
-  rake install_dependencies
   cd example_rails_app
-  export RSPEC_RAILS_VERSION=2.1.0
+  export RSPEC_RAILS_VERSION=2.3.2
   rake rspec:generate_sqlite3_config
   cd ..
   rake pre_commit
+  
+The rake pre_commit command runs all the specs and cucumber scenarios for
+rspec, and then for rspec-rails. The rspec-rails specs are run against all of
+the supported versions of rails defined in
+pre_commit/lib/pre_commit/rspec-rails.rb, near the top.
 
 Note that RSpec itself - once built - doesn't have any dependencies outside
 the Ruby core and stdlib - with a few exceptions:
