@@ -1,22 +1,22 @@
 # Committers/forkers should change the url values to point to repos that you
 # can push to.
 
-repos:
-  - name: rspec-dev
-    path: example_rails_app/vendor/plugins/rspec-dev
-    url : git://github.com/dchelimsky/rspec-dev.git
-  - name: rspec
-    path: example_rails_app/vendor/plugins/rspec
-    url : git://github.com/dchelimsky/rspec.git
-  - name: rspec-rails
-    path: example_rails_app/vendor/plugins/rspec-rails
-    url : git://github.com/dchelimsky/rspec-rails.git
-  - name: rails
-    path: example_rails_app/vendor/rails
-    url : git://github.com/rails/rails.git
+:repos:
+  - :name: rspec-dev
+    :path: example_rails_app/vendor/plugins/rspec-dev
+    :url : git://github.com/dchelimsky/rspec-dev.git
+  - :name: rspec
+    :path: example_rails_app/vendor/plugins/rspec
+    :url : git://github.com/dchelimsky/rspec.git
+  - :name: rspec-rails
+    :path: example_rails_app/vendor/plugins/rspec-rails
+    :url : git://github.com/dchelimsky/rspec-rails.git
+  - :name: rails
+    :path: example_rails_app/vendor/rails
+    :url : git://github.com/rails/rails.git
 
     # You can safely remove this one if you're not planning to work
     # on the TextMate bundle.
-  - name: rspec-tmbundle
-    path: RSpec.tmbundle
-    url : git://github.com/dchelimsky/rspec-tmbundle.git
+  - :name: rspec-tmbundle
+    :path: RSpec.tmbundle
+    :url : git://github.com/dchelimsky/rspec-tmbundle.git

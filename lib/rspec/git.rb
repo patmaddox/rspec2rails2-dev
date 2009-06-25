@@ -117,19 +117,6 @@ module RSpec
       end
     end
     
-    def subprojects
-      [
-       {:name => "TextMate Bundle", :path => 'RSpec.tmbundle',
-        :url => "#{url_prefix}/rspec-tmbundle.git" },
-       {:name => "rspec", :path => 'example_rails_app/vendor/plugins/rspec',
-        :url => "#{url_prefix}/rspec.git"},
-       {:name => "rspec-rails", :path => 'example_rails_app/vendor/plugins/rspec-rails',
-        :url => "#{url_prefix}/rspec-rails.git"},
-       {:name => "rails", :path => 'example_rails_app/vendor/rails',
-        :url => "git://github.com/rails/rails.git"}
-      ]
-    end
-
     def url_prefix
       if ENV["COMMITTER"]
         "git@github.com:dchelimsky"

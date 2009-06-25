@@ -107,9 +107,6 @@ if git.repos_fetched?
       git.add_remotes
     end
   end
-else
-  puts "Missing repos - check repos.yml and run 'rake git:update'"
-  puts YAML.dump(git.repos)
 end
 
 def assign_version
