@@ -121,7 +121,7 @@ module Webby
             <a href="http://github.com/dchelimsky/rspec-rails/wikis/home" target="_blank">Install</a>
           </li>
           <li>
-            <a href="http://rspec.rubyforge.org/rspec-rails/#{rspec_version}" target="_blank">RDoc</a>
+            <a href="http://rspec.rubyforge.org/rspec-rails/#{rspec_rails_version}" target="_blank">RDoc</a>
           </li>
         <% end -%>
         </ul>
