@@ -4,6 +4,7 @@ class PreCommit::RspecOnRails < PreCommit
 
   RAILS_TAGS = []
   RAILS_TAGS << 'v2.3.2'
+  RAILS_TAGS << 'v2.3.3'
   unless RUBY_VERSION =~ /^1\.9/
     RAILS_TAGS << 'v2.2.2'
     RAILS_TAGS << 'v2.1.2'
