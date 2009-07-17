@@ -22,7 +22,17 @@ h2. The RSpec Book
 
 The RSpec Book will introduce you to RSpec, Cucumber, and a number of other tools that make up the Ruby BDD family. Replete with tutorials and practical examples, the RSpec Book will help you get your BDD on, taking you from executable requirements to working software that is clean, well tested, well documented, flexible and highly maintainable.
 
-h2. Get Started
+h2. More information
+
+"http://wiki.github.com/dchelimsky/rspec":http://wiki.github.com/dchelimsky/rspec
+"http://rspec.lighthouseapp.com":http://rspec.lighthouseapp.com
+"http://blog.davidchelimsky.net":http://blog.davidchelimsky.net
+
+h2. Get Started Now
+
+<pre>
+$ gem install rspec
+</pre>
 
 <table width="100%" cellpadding="0" cellspacing="0">
   <tr>
@@ -93,9 +103,4 @@ Don't rush ahead with more code. Instead, add another example and let it guide y
 
 h2. Take the first step now!
 
-<pre>
-$ gem install rspec
-</pre>
-
-(See special installation instructions for "Spec::Rails":http://github.com/dchelimsky/rspec-rails/wikis/home)
 

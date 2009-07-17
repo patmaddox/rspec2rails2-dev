@@ -48,10 +48,15 @@ module Webby
   end
   
   require File.dirname(__FILE__) + '/../../example_rails_app/vendor/plugins/rspec/lib/spec/version'
+  require File.dirname(__FILE__) + '/../../example_rails_app/vendor/plugins/rspec-rails/lib/spec/rails/version'
   
   class Renderer
     def rspec_version
       Spec::VERSION::STRING
+    end
+    
+    def rspec_rails_version
+      Spec::Rails::VERSION::STRING
     end
 
     def svn_tag
