@@ -93,7 +93,15 @@ module RSpec
     end
 
     def repos
-      @yaml ||= YAML.load_file(File.join(File.dirname(__FILE__), "/../../repos.yml"))
+      @yaml ||= begin
+                  repos_yml_path = File.join(File.dirname(__FILE__), "/../../repos.yml")
+                  unless File.exists?(repos_yml_path)
+                    $stderr.puts "Missing repos.yml. Copying repos.yml.sample to repos.yml. Adjust as necessary and re-reun the last command."
+                    FileUtils.cp "#{repos_yml_path}.sample", repos_yml_path
+                    abort 
+                  end
+                  YAML.load_file(repos_yml_path)
+                end
       @yaml[:repos]
     end
 
