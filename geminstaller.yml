@@ -20,6 +20,8 @@ gems:
   version: '>= 0.8.4'
 - name: spicycode-rcov
   version: '>= 0.8.2.1'
+- name: syntax
+  version: '>= 1.0.0'
 - name: rr
   version: '>= 0.10.0'
 - name: ruby-debug
