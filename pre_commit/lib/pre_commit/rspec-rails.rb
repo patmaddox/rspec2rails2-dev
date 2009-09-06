@@ -72,7 +72,7 @@ class PreCommit::RspecOnRails < PreCommit
   end
   
   def generate(name)
-    sleep 0.5 if ENV['RAILS_VERSION_FOR_RSPEC'] == 'v2.3.4'
+    sleep 0.5
     send("generate_#{name}")
   end
 
