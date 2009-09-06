@@ -3,10 +3,10 @@ class PreCommit::RspecOnRails < PreCommit
   MASTER = 'origin/2-3-stable'
 
   RAILS_TAGS = []
+  RAILS_TAGS << 'v2.3.4'
   RAILS_TAGS << 'v2.3.3'
   RAILS_TAGS << 'v2.3.2'
   unless RUBY_VERSION =~ /^1\.9/
-    RAILS_TAGS << 'v2.3.4'
     RAILS_TAGS << 'v2.2.2'
     RAILS_TAGS << 'v2.1.2'
     RAILS_TAGS << 'v2.0.5'
@@ -56,10 +56,10 @@ class PreCommit::RspecOnRails < PreCommit
     cleanup(cleanup_rspec)
     generate_rspec
 
-    generate_login_controller
-    generate_account_model
-    generate_event_model_skip_fixture
-    generate_purchase
+    generate :login_controller
+    generate :account_model
+    generate :event_model_skip_fixture
+    generate :purchase
     migrate_up
 
     rake_sh "spec"
@@ -69,6 +69,11 @@ class PreCommit::RspecOnRails < PreCommit
     end
   ensure
     cleanup(cleanup_rspec)
+  end
+  
+  def generate(name)
+    sleep 0.5 if ENV['RAILS_VERSION_FOR_RSPEC'] == 'v2.3.4'
+    send("generate_#{name}")
   end
 
   def cleanup(cleanup_rspec=true)
