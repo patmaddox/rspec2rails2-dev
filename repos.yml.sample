@@ -3,7 +3,7 @@
 
 :repos:
   - :name: rspec-dev
-    :path: example_rails_app/vendor/plugins/rspec-dev
+    :path: .
     :url : git://github.com/dchelimsky/rspec-dev.git
   - :name: rspec
     :path: example_rails_app/vendor/plugins/rspec

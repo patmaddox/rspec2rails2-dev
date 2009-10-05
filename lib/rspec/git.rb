@@ -1,7 +1,9 @@
 module RSpec
   class Git
     def repos_fetched?
-      repos.all? {|s| File.directory?(s[:path]) }
+      repos.all? do |repo|
+        File.directory?(repo[:path]) ? true : (raise "missing #{repo[:path]}")
+      end
     end
     
     def update
