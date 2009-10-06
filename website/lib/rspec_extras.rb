@@ -100,7 +100,7 @@ module Webby
             <%= p.link %>
           </li>
         <% end %>
-        <% if page.url == '/community' %>
+        <% if page.url == '/community/' %>
           <li>
             <a href="http://wiki.github.com/dchelimsky/rspec/get-in-touch" target="_blank">Get in Touch</a>
           </li>
@@ -108,7 +108,7 @@ module Webby
             <a href="http://wiki.github.com/dchelimsky/rspec/contribute" target="_blank">Contribute</a>
           </li>
         <% end %>
-        <% if page.url == '/documentation' %>
+        <% if page.url == '/documentation/' %>
           <li>
             <a href="http://github.com/dchelimsky/rspec/wikis/home" target="_blank">Install</a>
           </li>
@@ -116,7 +116,7 @@ module Webby
             <a href="http://rspec.rubyforge.org/rspec/#{rspec_version}" target="_blank">RDoc</a>
           </li>
         <% end %>
-        <% if page.url == '/rails' -%>
+        <% if page.url == '/rails/' -%>
           <li>
             <a href="http://github.com/dchelimsky/rspec-rails/wikis/home" target="_blank">Install</a>
           </li>
