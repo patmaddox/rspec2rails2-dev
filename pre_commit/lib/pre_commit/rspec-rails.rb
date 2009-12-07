@@ -3,6 +3,7 @@ class PreCommit::RspecOnRails < PreCommit
   MASTER = 'origin/2-3-stable'
 
   RAILS_TAGS = []
+  RAILS_TAGS << 'v2.3.5'
   RAILS_TAGS << 'v2.3.4'
   RAILS_TAGS << 'v2.3.3'
   RAILS_TAGS << 'v2.3.2'
