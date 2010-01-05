@@ -2,7 +2,12 @@ module RSpec
   class Git
     def repos_fetched?
       repos.all? do |repo|
-        File.directory?(repo[:path])
+        if File.directory?(repo[:path])
+          true
+        else
+          $stderr.puts "missing #{repo[:path]}"
+          false
+        end
       end
     end
     
