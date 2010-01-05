@@ -126,7 +126,7 @@ module RSpec
       repos.all? do |r|
         !File.exist?(r[:path]) ||
         (output = `cd #{r[:path]} && git status`;
-         output.include?('On branch master') &&
+         (ENV['IGNORE_BRANCH'].nil? ? output.include?('On branch master') : true) &&
          !output.include?('Changes to be committed:') &&
          !output.include?('Changed but not updated:'))
       end
