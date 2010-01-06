@@ -46,8 +46,8 @@ $ gem install rspec
 # bowling_spec.rb
 require 'bowling'
 
-describe Bowling do
-  it "should score 0 for gutter game" do
+describe Bowling, "#score" do
+  it "returns 0 for all gutter game" do
     bowling = Bowling.new
     20.times { bowling.hit(0) }
     bowling.score.should == 0
@@ -84,10 +84,10 @@ end
 Run the example and bask in the joy that is green.
 </p>
 
-<pre style="color:green;">$ spec bowling_spec.rb --format specdoc
+<pre style="color:green;">$ spec bowling_spec.rb --format nested
 
-Bowling
-- should score 0 for gutter game
+Bowling#score
+  returns 0 for all gutter game
 
 Finished in 0.007534 seconds
 

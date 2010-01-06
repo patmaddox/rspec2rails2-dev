@@ -17,16 +17,16 @@ h3. Expecting Messages
 my_mock.should_receive(<message>)
 <% end -%>
 
-The <code>message</code> argument is a symbol that is the name of a message 
+The <code>message</code> argument is a symbol that is the name of a message
 that you want the mock to expect.
+
+You can also specify that a message should _not_ be received:
 
 <% coderay do -%>
 my_mock.should_not_receive(:msg)
 <% end -%>
 
-An exception is raised if the message is ever received.
-This is equivalent to not specifying the reception of :msg,
-but it's more declarative and useful for humans.
+This fails if :msg is ever received.
 
 h3. Expecting Arguments
 
