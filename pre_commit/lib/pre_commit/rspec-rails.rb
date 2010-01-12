@@ -84,6 +84,7 @@ class PreCommit::RspecOnRails < PreCommit
     rm_generated_event_model_files
     rm_generated_account_model_files
     rm_generated_login_controller_files
+    silent_sh "git checkout config/environments/test.rb"
     remove_generated_rspec_files if cleanup_rspec
   end
 
