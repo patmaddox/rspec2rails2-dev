@@ -250,7 +250,9 @@ In alphabetical order (by last name)
 * Tim Pope
 ** Patch LH[#413] Disable color codes on STDOUT when STDOUT.tty? is false
 * Matt Patterson
-* Patch [#440] to add failing example of before filters running twice.
+** Patch [#440] to add failing example of before filters running twice.
+* Matthew Peychich
+** Array =~ matcher works with subclasses of Array
 * Carl Porth
 ** Patch [#12174] mishandling of paths with spaces in spec_mate switch_command
 ** Patch [#12237] (tiny) added full path to mate in switch_command
