@@ -4,6 +4,8 @@ gems:
   version: '>= 0.3.11'
 - name: diff-lcs
   version: '>= 1.1.2'
+- name: fakefs
+  version: '>= 0.2.1'
 - name: flexmock
   version: '>= 0.8.6'
 - name: heckle
@@ -18,8 +20,8 @@ gems:
   version: '>= 0.9.1'
 - name: rake
   version: '>= 0.8.4'
-- name: spicycode-rcov
-  version: '>= 0.8.2.1'
+- name: rcov
+  version: '>= 0.9.8'
 - name: syntax
   version: '>= 1.0.0'
 - name: rr
