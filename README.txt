@@ -6,7 +6,9 @@
 
 == DESCRIPTION:
 
-This project is for RSpec developers/contributors.
+This project is for RSpec-1 developers/contributors.
+
+NOTE: For RSpec-2, see http://github.com/rspec/rspec-dev
 
 == INSTALL:
 
