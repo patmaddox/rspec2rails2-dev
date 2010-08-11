@@ -5,7 +5,11 @@ require 'rubyforge'
 
 rspec_root = File.expand_path(File.join(File.dirname(__FILE__), "/example_rails_app/vendor/plugins/rspec/lib"))
 $:.unshift(rspec_root) unless $:.include?(rspec_root)
-require 'spec/version'
+begin
+  require 'spec/version'
+rescue LoadError
+  puts "rspec plugin doesn't seem to be checked out, run rake git:udpate"
+end
 
 def git
   RSpec::Git.new
