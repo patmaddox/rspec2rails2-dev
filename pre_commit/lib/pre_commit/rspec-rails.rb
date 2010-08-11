@@ -3,16 +3,19 @@ class PreCommit::RspecOnRails < PreCommit
   MASTER = 'origin/2-3-stable'
 
   RAILS_TAGS = []
-  RAILS_TAGS << 'v2.3.5'
-  RAILS_TAGS << 'v2.3.4'
-  RAILS_TAGS << 'v2.3.3'
-  RAILS_TAGS << 'v2.3.2'
-  unless RUBY_VERSION =~ /^1\.9/
-    RAILS_TAGS << 'v2.2.2'
-    RAILS_TAGS << 'v2.1.2'
-    RAILS_TAGS << 'v2.0.5'
-  end
-  RAILS_TAGS << MASTER
+  RAILS_TAGS << 'v2.3.8'
+  # RAILS_TAGS << 'v2.3.7'
+  # RAILS_TAGS << 'v2.3.6'
+  # RAILS_TAGS << 'v2.3.5'
+  # RAILS_TAGS << 'v2.3.4'
+  # RAILS_TAGS << 'v2.3.3'
+  # RAILS_TAGS << 'v2.3.2'
+  # unless RUBY_VERSION =~ /^1\.9/
+  #   RAILS_TAGS << 'v2.2.2'
+  #   RAILS_TAGS << 'v2.1.2'
+  #   RAILS_TAGS << 'v2.0.5'
+  # end
+  # RAILS_TAGS << MASTER
 
   def pre_commit
     check_dependencies
