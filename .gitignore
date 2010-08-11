@@ -16,3 +16,4 @@ example_rails_app/tmp
 *.iws
 *~
 website/output
+.rvmrc
